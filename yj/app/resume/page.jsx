@@ -263,7 +263,7 @@ const Resume = () => {
                       <h3 className='text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
                       <div className='w-[6px] h-[6px] rounded-full bg-accent'>
                         {/* dot */}
-                        <span className=''pan></span>
+                        <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
                         <p className='text-white/60'>{item.company}</p>
                       </div>
                     </li>
