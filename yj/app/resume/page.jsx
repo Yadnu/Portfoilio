@@ -311,21 +311,34 @@ const Resume = () => {
                       <h3 className='text-4xl font-bold text-accent'>{skills.title}</h3>
 
                     </div>
-                    <ul>
+                    <ul className='flex flex-col'>
                       {
                         skills.items.map((skillCategory, index) => (
+
                           <div key={index} >
-                            <h3 className='text-2xl'>{skillCategory.skillType}</h3>
-                            <ul className='flex flex-row gap-10'>
+                            <div className='min-h-[64px]'><h3 className='text-2xl'>{skillCategory.skillType}</h3></div>
+                            <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px] gap-4'>
                               {skillCategory.skillList.map((skill, skillIndex) => (
-                                <li key={skillIndex} className=' hover:text-accent'>
-                                  <span className='px-auto h-50 flex text-center justify-center'>{skill.icon}</span>
-                                  <span>{skill.name}</span>
+                                <li key={skillIndex} className=' hover:text-blue-400 '>
+                                  <TooltipProvider delayDuration={100} className='flex flex-row'>
+                                    <Tooltip>
+                                      <TooltipTrigger className='w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group'>
+                                        <div className='text-6xl group-hover:text-accent transition-all duration-300'>{skill.icon}</div>
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                        <p className='capitalize'>{skill.name}</p>
+                                        </TooltipContent>
+                                       
+                                      
+                                    </Tooltip>
+                                  
+                                  </TooltipProvider>
+                                  
                                 </li>
                               ))}
-                              <br />
+                          
                             </ul>
-                            <br />
+                           
                           </div>
                         ))
                       }
@@ -333,8 +346,23 @@ const Resume = () => {
                   </div>
             </TabsContent>
             {/* about */}
-            <TabsContent value = "about" className="w-full" >
-              about
+            <TabsContent value = "about" className="w-full text-center xl:text-left" >
+              <div className='flex flex-col gap-[30px]'>
+                <h3 className='text-4x font-bold'>
+                  {about.title}
+                </h3>
+                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>
+                  {about.description}
+                </p>
+                <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
+                  {about.info.map((item, index)=>{
+                    return <li key={index} className='flex items-center justify-center xl:justify-start gap-4'>
+                        <span className='text-white/60'>{item.fieldName}</span>
+                        <span className='text-xl '>{item.fieldValue}</span>
+                    </li>
+                  })}
+                </ul> 
+              </div>
             </TabsContent>
           </div>
         </Tabs>
