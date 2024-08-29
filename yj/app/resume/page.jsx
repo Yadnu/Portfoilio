@@ -2,6 +2,8 @@
 import React from 'react'
 import {TbBrandCpp, TbBrandDjango} from 'react-icons/tb';
 import { FaHtml5,FaReact,FaFigma, FaNodeJs, FaJs, FaJava, FaPython, FaDocker, FaGithub, FaJenkins } from 'react-icons/fa';
+import '../globals.css';
+
 import{
   SiTailwindcss, SiNextdotjs,
   SiShadcnui,
@@ -261,10 +263,14 @@ const Resume = () => {
                     return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 ' >
                       <span className='text-accent'>{item.duration}</span>
                       <h3 className='text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
-                      <div className='w-[6px] h-[6px] rounded-full bg-accent'>
+                      <div className='w-[6px] h-[6px] rounded-full bg-accent '>
                         {/* dot */}
-                        <span className='w-[6px] h-[6px] rounded-full bg-accent'></span>
-                        <p className='text-white/60'>{item.company}</p>
+                        <div className="flex">
+                          
+                        </div>
+                        <span className='w-[6px] h-[6px] rounded-full bg-accent'>
+                        </span>
+                        <p className ="companyName" >{item.company}</p>
                       </div>
                     </li>
                   })}
@@ -274,11 +280,57 @@ const Resume = () => {
             </TabsContent>
             {/* education */}
             <TabsContent value = "education" className="w-full" >
-              education
+            <div className="flex flex-col gap-[30px] text-center xl:text-left">
+              <h3 className='text-4xl font-bold'>{experience.title}</h3>
+              <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{experience.description}</p>
+              <ScrollArea className="h-[400px]">
+                <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
+                  {education.items.map((item, index)=>{
+                    return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 educationName ' >
+                      <span className='text-accent'>{item.duration}</span>
+                      <h3 className='text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
+                      <div className='w-[6px] h-[6px] rounded-full bg-accent '>
+                        {/* dot */}
+                        <div className="flex">
+                          
+                        </div>
+                        <span className='w-[6px] h-[6px] rounded-full bg-accent'>
+                        </span>
+                        <p className ="companyName" >{item.institution}</p>
+                      </div>
+                    </li>
+                  })}
+                </ul>
+              </ScrollArea>
+              </div>
             </TabsContent>
             {/* skills */}
-            <TabsContent value = "skills" className="w-full" >
-              skills
+            <TabsContent value = "skills" className="w-full h-full" >
+                  <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                    <div>
+                      <h3 className='text-4xl font-bold text-accent'>{skills.title}</h3>
+
+                    </div>
+                    <ul>
+                      {
+                        skills.items.map((skillCategory, index) => (
+                          <div key={index} >
+                            <h3 className='text-2xl'>{skillCategory.skillType}</h3>
+                            <ul className='flex flex-row gap-10'>
+                              {skillCategory.skillList.map((skill, skillIndex) => (
+                                <li key={skillIndex} className=' hover:text-accent'>
+                                  <span className='px-auto h-50 flex text-center justify-center'>{skill.icon}</span>
+                                  <span>{skill.name}</span>
+                                </li>
+                              ))}
+                              <br />
+                            </ul>
+                            <br />
+                          </div>
+                        ))
+                      }
+                    </ul>
+                  </div>
             </TabsContent>
             {/* about */}
             <TabsContent value = "about" className="w-full" >

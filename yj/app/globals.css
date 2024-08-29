@@ -21,5 +21,11 @@
     .text-outline-hover{
         -webkit-text-stroke: 1px #00ff99
     }
+    .companyName{
+        width: 300px !important;
+    }
+    .educationName{
+        padding-top: 2px  !important;
+    }
 }
 
