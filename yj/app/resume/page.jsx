@@ -46,16 +46,8 @@ const about = {
       fieldValue: "1 year"
     },
     {
-      fieldName: "Nationality",
-      fieldValue: "Indian"
-    },
-    {
       fieldName: "Email",
       fieldValue: "yadneyajoshi3@gmail.com"
-    },
-    {
-      fieldName: "Name",
-      fieldValue: "Yadneya Joshi"
     },
 
   ]
