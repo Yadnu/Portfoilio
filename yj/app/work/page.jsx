@@ -17,6 +17,19 @@ import WorkSliderBtns from '@/components/WorkSliderBtns';
 const projects = [
   {
     num: "01",
+    category: "Web3 Wallet",
+    title: "Walleto",
+    descrption:`Developed a web3 based wallet using NextJS
+    Implemented HD wallet using bip39.
+    Wallet supports Ethereum and Solana
+    `,
+    stack: [{name:"NextJS"},{name:"TypeScript"}, {name:"web3.js"}, {name:"ShadCN"}],
+    image: "/assets/work/walleto.png",
+    live: "https://wallet-ten-self.vercel.app/",
+    github: "https://github.com/Yadnu/wallet/tree/master",
+  },
+  {
+    num: "02",
     category: "Fullstack",
     title: "CarePulse",
     descrption:`Developed a user-friendly SaaS health portal to efficiently manage hospital services, ensuring a secure and seamless user experience.
@@ -27,12 +40,12 @@ compared to single-threaded Node.js applications.
 management, improving operational efficiency.
 ● Architected an SMS alert notification system to enhance patient communication and ensure timely updates.`,
     stack: [{name:"NextJS"},{name:"TypeScript"}, {name:"AppWrite"}, {name:"Sentry"}],
-    image: "/public/assets/work/thum2.png",
+    image: "/assets/work/thum2.jpg",
     live: "",
     github: "",
   },
   {
-    num: "02",
+    num: "03",
     category: "AI / ML",
     title: "QA System using NLP",
     descrption:`● Implemented a state-of-the-art QA system utilizing a robustsummarization algorithm and leveraging BERT model for
@@ -49,7 +62,7 @@ system's reliability and increasing user confidence in the answers provided.`,
     github: "",
   },
   {
-    num: "03",
+    num: "04",
     category: "AI / ML",
     title: "Movie Recommendation",
     descrption:`● Orchestrated the optimization of the movie recommendation system, leveraging AI and machine learning techniques, 
