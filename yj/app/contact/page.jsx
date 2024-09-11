@@ -48,7 +48,7 @@ const Contact = () => {
           <Input name="phone" type="phone" placeholder = "Phone number"/>
           </div>
           {/* select */}
-          <Select>
+          <Select name='type'>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select a service" />
             </SelectTrigger>
@@ -57,15 +57,17 @@ const Contact = () => {
                 <SelectLabel>
                   Select a service
                 </SelectLabel>
-                <SelectItem value="est">Full time job</SelectItem>
-                <SelectItem value="cst">Web Development</SelectItem>
-                <SelectItem value="mst">AI/ML Project</SelectItem>
-                <SelectItem value="gst">Blockchain Project</SelectItem>
+                <SelectItem value="summerintern">Internship</SelectItem>
+                <SelectItem value="fulltime">Full time job</SelectItem>
+                <SelectItem value="webdev">Web Development</SelectItem>
+                <SelectItem value="aiml">AI/ML Project</SelectItem>
+                <SelectItem value="bp">Blockchain Project</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
           {/* text area */}
           <Textarea
+            name ="Text"
             className="h-[200px]"
             placeholder="Type your message here."
           />
