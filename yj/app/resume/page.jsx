@@ -252,17 +252,12 @@ const Resume = () => {
               <ScrollArea className="h-[400px]">
                 <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                   {experience.items.map((item, index)=>{
-                    return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 ' >
-                      <span className='text-accent'>{item.duration}</span>
-                      <h3 className='text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left'>{item.position}</h3>
-                      <div className='w-[6px] h-[6px] rounded-full bg-accent '>
-                        {/* dot */}
-                        <div className="flex">
-                          
-                        </div>
-                        <span className='w-[6px] h-[6px] rounded-full bg-accent'>
-                        </span>
-                        <p className ="companyName" >{item.company}</p>
+                    return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2'>
+                      <span className='text-accent text-sm'>{item.duration}</span>
+                      <h3 className='text-xl max-w-[260px] min-h-[48px] text-center lg:text-left leading-tight'>{item.position}</h3>
+                      <div className='flex items-center gap-3'>
+                        <span className='w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0'></span>
+                        <p className='text-white/60 text-sm'>{item.company}</p>
                       </div>
                     </li>
                   })}
@@ -273,22 +268,17 @@ const Resume = () => {
             {/* education */}
             <TabsContent value = "education" className="w-full" >
             <div className="flex flex-col gap-[30px] text-center xl:text-left">
-              <h3 className='text-4xl font-bold'>{experience.title}</h3>
-              <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{experience.description}</p>
+              <h3 className='text-4xl font-bold'>{education.title}</h3>
+              <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{education.description}</p>
               <ScrollArea className="h-[400px]">
                 <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
                   {education.items.map((item, index)=>{
-                    return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 educationName ' >
-                      <span className='text-accent'>{item.duration}</span>
-                      <h3 className='text-xl mx-w-[260px] min-h-[60px] text-center lg:text-left'>{item.degree}</h3>
-                      <div className='w-[6px] h-[6px] rounded-full bg-accent '>
-                        {/* dot */}
-                        <div className="flex">
-                          
-                        </div>
-                        <span className='w-[6px] h-[6px] rounded-full bg-accent'>
-                        </span>
-                        <p className ="companyName" >{item.institution}</p>
+                    return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2'>
+                      <span className='text-accent text-sm'>{item.duration}</span>
+                      <h3 className='text-xl max-w-[260px] min-h-[48px] text-center lg:text-left leading-tight'>{item.degree}</h3>
+                      <div className='flex items-center gap-3'>
+                        <span className='w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0'></span>
+                        <p className='text-white/60 text-sm'>{item.institution}</p>
                       </div>
                     </li>
                   })}

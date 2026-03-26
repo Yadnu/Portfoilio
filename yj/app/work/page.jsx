@@ -6,7 +6,6 @@ import "swiper/css";
 import {BsArrowUpRight,BsGithub} from 'react-icons/bs';
 import { Tooltip,
          TooltipContent,
-         TooltipContento,
          TooltipProvider,
          TooltipTrigger
  } from '@radix-ui/react-tooltip';

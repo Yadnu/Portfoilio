@@ -12,7 +12,7 @@ const socials = [
 ]
 const Social = ({containerStyles, iconStyles}) => {
   return (
-    <div className=" flex gap-5 containerStyles">
+    <div className={containerStyles}>
         {socials.map((item, index)=>{
             return <Link key={index} href={item.path} className={iconStyles}>
                 {item.icon}

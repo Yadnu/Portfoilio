@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
     body {
         @apply font-primary bg-primary text-white leading-loose;
+        background-image: radial-gradient(rgba(0, 255, 153, 0.04) 1px, transparent 1px);
+        background-size: 28px 28px;
     }
     .h1{
         @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
@@ -21,11 +26,34 @@
     .text-outline-hover{
         -webkit-text-stroke: 1px #00ff99
     }
-    .companyName{
-        width: 300px !important;
+
+    /* custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 6px;
     }
-    .educationName{
-        padding-top: 2px  !important;
+    ::-webkit-scrollbar-track {
+        background: #1c1c22;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #00ff9933;
+        border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00ff99;
+    }
+}
+
+@layer utilities {
+    .accent-glow {
+        box-shadow: 0 0 20px rgba(0, 255, 153, 0.25), 0 0 40px rgba(0, 255, 153, 0.1);
+    }
+    .accent-glow-sm {
+        box-shadow: 0 0 10px rgba(0, 255, 153, 0.2);
+    }
+    .card-surface {
+        background: rgba(35, 35, 41, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(4px);
     }
 }
 
