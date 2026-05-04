@@ -1,5 +1,5 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
 import {TbBrandCpp, TbBrandDjango} from 'react-icons/tb';
 import { FaHtml5,FaReact,FaFigma, FaNodeJs, FaJs, FaJava, FaPython, FaDocker, FaGithub, FaJenkins } from 'react-icons/fa';
 import '../globals.css';
@@ -56,22 +56,46 @@ const about = {
 const experience = {
   icon: '/assets/resume/badge.svg',
   title: "My experience",
-
-items: [
-  {company: "PTC Software Pune",
-    position: "Software Engineering Intern",
-    duration: "July 2022 - July 2023",    
-  },
-  {company: "Eduskills foundation",
-    position: "AWS Virtual Cloud Internship",
-    duration: "Feb 2022 - May 20223",    
-  },
-  {company: "Elite Techno Groups",
-    position: "Python For ML/AI Internship",
-    duration: "Aug 2022 – Sept 2022",    
-  },
-
-]
+  items: [
+    {
+      company: "Webster Solutions, India",
+      position: "Software Engineer",
+      duration: "Aug 2023 – Jul 2024",
+      responsibilities: [
+        "Led a 5-member team building a Java, Spring Boot, and microservices-based Analytics module, implementing structured exception handling, designing Oracle SQL queries, and automating data exchange via Oracle Advanced Queues.",
+        "Migrated legacy Spring application to Spring Boot with Spring Security and JWT-based authentication, authored Helm charts for containerized deployment on Rancher and Harbor, and managed schema changes using Liquibase migration scripts.",
+        "Collaborated on automating application testing through shell scripts integrated with Java code, reducing testing time by 50% and improving product stability.",
+        "Migrated a gateway application from Java 8 to Java 21, resolving critical security vulnerabilities and ensuring backward compatibility across all dependent services.",
+      ],
+    },
+    {
+      company: "PTC Software, India",
+      position: "Software Engineer Intern",
+      duration: "Jun 2022 – Jun 2023",
+      responsibilities: [
+        "Redesigned the error reporting system to eliminate redundancy and deliver personalized bug reports to individual team members, and introduced ID-based component retrieval to reduce inter-component latency and improve system responsiveness.",
+        "Performed code smell removal on legacy Windchill codebase using SonarQube, improving maintainability and reducing technical debt across core Windchill-Creo CAD interaction modules.",
+        "Designed and executed automated integration tests using RestAssured framework and maintained Windchill server releases in close collaboration with Jenkins CI pipelines.",
+      ],
+    },
+    {
+      company: "Eduskills foundation",
+      position: "AWS Virtual Cloud Internship",
+      duration: "Feb 2022 – May 2022",
+      responsibilities: [
+        "AWS cloud fundamentals and virtual internship program through Eduskills foundation.",
+      ],
+    },
+    {
+      company: "Elite Techno Groups",
+      position: "Python For ML/AI Internship",
+      duration: "Aug 2022 – Sept 2022",
+      responsibilities: [
+        "Python-focused internship covering ML/AI foundations and practical exercises.",
+      ],
+    },
+    // ADD_EXPERIENCE_HERE
+  ],
 }
 const education = {
   icon: '/assets/resume/cap.svg',
@@ -224,6 +248,7 @@ const skills = {
 
 }
 const Resume = () => {
+  const [activeExp, setActiveExp] = useState(null);
   return (
     <motion.div initial={{ opacity: 0 }}
       animate={{
@@ -250,16 +275,42 @@ const Resume = () => {
               <h3 className='text-4xl font-bold'>{experience.title}</h3>
               <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{experience.description}</p>
               <ScrollArea className="h-[400px]">
-                <ul className='grid grid-cols-1 lg:grid-cols-2 gap-[30px]'>
-                  {experience.items.map((item, index)=>{
-                    return <li key={index} className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2'>
-                      <span className='text-accent text-sm'>{item.duration}</span>
-                      <h3 className='text-xl max-w-[260px] min-h-[48px] text-center lg:text-left leading-tight'>{item.position}</h3>
-                      <div className='flex items-center gap-3'>
-                        <span className='w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0'></span>
-                        <p className='text-white/60 text-sm'>{item.company}</p>
-                      </div>
-                    </li>
+                <ul className='grid grid-cols-1 gap-[30px]'>
+                  {experience.items.map((item, index) => {
+                    const isOpen = activeExp === index;
+                    return (
+                      <li
+                        key={index}
+                        onClick={() => setActiveExp(isOpen ? null : index)}
+                        className={`bg-[#232329] min-h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-2 cursor-pointer hover:bg-[#2a2a31] transition-colors duration-300 select-none`}
+                      >
+                        {/* header row */}
+                        <div className='flex w-full justify-between items-start gap-4'>
+                          <div className='flex flex-col gap-2 flex-1'>
+                            <span className='text-accent text-sm'>{item.duration}</span>
+                            <h3 className='text-xl min-h-[48px] text-center lg:text-left leading-tight'>{item.position}</h3>
+                            <div className='flex items-center gap-3'>
+                              <span className='w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0'></span>
+                              <p className='text-white/60 text-sm'>{item.company}</p>
+                            </div>
+                          </div>
+                          <span className={`text-accent text-xl font-light mt-1 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
+                            +
+                          </span>
+                        </div>
+                        {/* responsibilities — visible when expanded */}
+                        {isOpen && item.responsibilities && (
+                          <ul className='mt-4 flex flex-col gap-3 w-full border-t border-white/10 pt-4'>
+                            {item.responsibilities.map((bullet, i) => (
+                              <li key={i} className='flex items-start gap-3 text-white/70 text-sm leading-relaxed'>
+                                <span className='text-accent mt-[3px] flex-shrink-0'>•</span>
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    );
                   })}
                 </ul>
               </ScrollArea>
